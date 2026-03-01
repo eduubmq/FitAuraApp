@@ -152,181 +152,183 @@
     <!-- PANTALLA DE APERTURA (SPLASH SCREEN) -->
     <div id="splashScreen" class="fixed inset-0 z-[2000] flex flex-col items-center justify-center overflow-hidden">
         <div class="animate-logo-entrance flex flex-col items-center text-center relative z-10">
-            <img src="assets/Letras FITAURA.png" alt="Fit Aura Logo" class="h-20 md:h-32 object-contain mb-10" onerror="this.outerHTML='<span class=\'text-4xl md:text-6xl text-emerald-400 tracking-[0.3em] uppercase font-black drop-shadow-[0_0_15px_rgba(16,185,129,0.5)]\'>FIT AURA</span>'" />
-            <div class="h-1.5 w-64 bg-zinc-900/80 rounded-full overflow-hidden mt-4 border border-zinc-800 shadow-[inset_0_2px_4px_rgba(0,0,0,0.6)] relative backdrop-blur-sm">
+            <img src="assets/Letras FITAURA.png" alt="Fit Aura Logo" class="h-16 sm:h-20 md:h-32 object-contain mb-10" onerror="this.outerHTML='<span class=\'text-3xl md:text-6xl text-emerald-400 tracking-[0.3em] uppercase font-black drop-shadow-[0_0_15px_rgba(16,185,129,0.5)]\'>FIT AURA</span>'" />
+            <div class="h-1.5 w-48 sm:w-64 bg-zinc-900/80 rounded-full overflow-hidden mt-4 border border-zinc-800 shadow-[inset_0_2px_4px_rgba(0,0,0,0.6)] relative backdrop-blur-sm">
                 <div id="splashLoader" class="h-full bg-emerald-500 w-0 transition-all duration-[2000ms] ease-out epic-loader-glow"></div>
             </div>
         </div>
     </div>
 
     <!-- BARRA DE NAVEGACIÓN -->
-    <header class="bg-black border-b border-zinc-800 p-4 sticky top-0 z-40 text-white">
-        <div class="container mx-auto flex items-center justify-between relative min-h-[56px] md:min-h-[64px]">
+    <header class="bg-black border-b border-zinc-800 p-3 sm:p-4 sticky top-0 z-40 text-white">
+        <div class="container mx-auto flex items-center justify-between relative min-h-[48px] sm:min-h-[56px] md:min-h-[64px]">
             <div class="flex-1 flex justify-start z-10 text-center">
-                <button id="navProfileBtn" class="p-2 -ml-2 rounded-full hover:bg-zinc-800 transition-colors text-zinc-400 hover:text-white">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                <button id="navProfileBtn" class="p-1.5 sm:p-2 -ml-1 sm:-ml-2 rounded-full hover:bg-zinc-800 transition-colors text-zinc-400 hover:text-white">
+                    <svg width="20" height="20" class="sm:w-[24px] sm:h-[24px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                 </button>
             </div>
-            <div class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
-                <img src="assets/Letras FITAURA.png" alt="Fit Aura Logo" class="h-14 md:h-16 object-contain" onerror="this.outerHTML='<span class=\'text-2xl text-emerald-400 tracking-widest uppercase\'>FIT AURA</span>'" />
+            <!-- Modificado pointer-events-none para que no bloquee el botón si en móviles se pisan -->
+            <div class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center pointer-events-none">
+                <img src="assets/Letras FITAURA.png" alt="Fit Aura Logo" class="h-6 sm:h-10 md:h-14 object-contain" onerror="this.outerHTML='<span class=\'text-base sm:text-xl md:text-2xl text-emerald-400 tracking-widest uppercase\'>FIT AURA</span>'" />
             </div>
-            <div class="flex-1 flex justify-end w-full md:w-auto z-10 text-white">
-                <button id="navConnectBtn" class="bg-emerald-500 text-black px-4 py-2 rounded-md hover:bg-emerald-400 transition-colors font-bold block text-sm md:text-base shadow-lg shadow-emerald-500/20 uppercase tracking-tighter">
-                    Conectar Pulsera
+            <div class="flex-1 flex justify-end z-10 text-white">
+                <button id="navConnectBtn" class="bg-emerald-500 text-black px-3 py-1.5 sm:px-4 sm:py-2 rounded-md hover:bg-emerald-400 transition-colors font-black text-[10px] sm:text-xs md:text-sm uppercase tracking-tighter whitespace-nowrap shadow-lg shadow-emerald-500/20">
+                    Conectar <span class="hidden sm:inline">Pulsera</span>
                 </button>
-                <div id="navConnectedState" class="hidden items-center bg-zinc-900 border border-zinc-800 rounded-md shadow-sm text-sm md:text-base min-w-[160px] sm:min-w-[210px] overflow-hidden h-10">
-                    <div id="btnSyncTrigger" class="flex-1 group relative h-full flex items-center justify-center cursor-pointer hover:bg-emerald-500/10 transition-colors px-3">
-                        <div id="bandNormalState" class="flex items-center gap-2 transition-all duration-300 transform group-hover:-translate-y-10 group-hover:opacity-0 uppercase tracking-tighter">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-emerald-400"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-                            <span class="font-bold text-white hidden sm:inline uppercase">Fit Aura Band</span>
-                            <div class="flex items-center gap-1 ml-1 sm:ml-2 pl-1 sm:pl-2 border-l border-zinc-700 text-emerald-400 uppercase">
-                                <span class="text-xs font-bold">85%</span>
+                <div id="navConnectedState" class="hidden items-center bg-zinc-900 border border-zinc-800 rounded-md shadow-sm text-[10px] sm:text-xs md:text-sm min-w-[100px] sm:min-w-[160px] md:min-w-[210px] overflow-hidden h-8 sm:h-10">
+                    <div id="btnSyncTrigger" class="flex-1 group relative h-full flex items-center justify-center cursor-pointer hover:bg-emerald-500/10 transition-colors px-2 sm:px-3 pointer-events-auto">
+                        <div id="bandNormalState" class="flex items-center gap-1 sm:gap-2 transition-all duration-300 transform group-hover:-translate-y-10 group-hover:opacity-0 uppercase tracking-tighter">
+                            <svg width="14" height="14" class="sm:w-[16px] sm:h-[16px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-emerald-400"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                            <span class="font-bold text-white hidden md:inline uppercase">Fit Aura Band</span>
+                            <div class="flex items-center gap-1 sm:ml-1 md:ml-2 sm:pl-1 md:pl-2 border-l border-zinc-700 text-emerald-400 uppercase">
+                                <span class="text-[9px] sm:text-xs font-bold">85%</span>
                             </div>
                         </div>
-                        <div id="bandSyncState" class="absolute inset-0 flex items-center gap-2 justify-center text-emerald-400 transition-all duration-300 transform translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 uppercase tracking-tighter">
-                            <svg id="syncIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/></svg>
-                            <span class="font-bold uppercase text-xs tracking-widest" id="syncText">Sincronizar</span>
+                        <div id="bandSyncState" class="absolute inset-0 flex items-center gap-1 sm:gap-2 justify-center text-emerald-400 transition-all duration-300 transform translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 uppercase tracking-tighter">
+                            <svg id="syncIcon" width="14" height="14" class="sm:w-[16px] sm:h-[16px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/></svg>
+                            <span class="font-bold uppercase text-[9px] sm:text-xs tracking-widest hidden sm:inline" id="syncText">Sincronizar</span>
+                            <span class="font-bold uppercase text-[9px] tracking-widest sm:hidden" id="syncTextMobile">Sync</span>
                         </div>
                     </div>
-                    <button id="btnDisconnect" class="h-10 w-10 flex items-center justify-center text-red-500 hover:bg-red-500/10 transition-colors border-l border-zinc-800" title="Desconectar">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+                    <button id="btnDisconnect" class="h-8 w-8 sm:h-10 sm:w-10 flex items-center justify-center text-red-500 hover:bg-red-500/10 transition-colors border-l border-zinc-800 pointer-events-auto" title="Desconectar">
+                        <svg width="14" height="14" class="sm:w-[18px] sm:h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
                     </button>
                 </div>
             </div>
         </div>
     </header>
 
-    <main class="container mx-auto p-6 md:p-8 max-w-5xl text-white">
+    <main class="container mx-auto p-4 sm:p-6 md:p-8 max-w-5xl text-white">
         <!-- HEADER PRINCIPAL -->
-        <div class="mb-10 flex flex-col md:flex-row md:justify-between md:items-end gap-4 text-center md:text-left">
+        <div class="mb-8 sm:mb-10 flex flex-col md:flex-row md:justify-between md:items-end gap-2 sm:gap-4 text-center md:text-left">
             <div class="uppercase tracking-tighter">
-                <h2 class="text-2xl font-bold mb-1 tracking-tight uppercase">Resumen de Salud</h2>
-                <p id="biomarkersUpdateText" class="text-zinc-500 text-sm font-normal">Tus biomarcadores se han actualizado hace <span id="syncMinutes">0</span> minutos</p>
+                <h2 class="text-xl sm:text-2xl font-bold mb-1 tracking-tight uppercase">Resumen de Salud</h2>
+                <p id="biomarkersUpdateText" class="text-zinc-500 text-[10px] sm:text-xs md:text-sm font-normal">Tus biomarcadores se han actualizado hace <span id="syncMinutes">0</span> minutos</p>
             </div>
             <div class="uppercase tracking-tighter">
-                <p id="currentDateDisplay" class="text-emerald-400 text-sm font-black uppercase tracking-[0.2em]"></p>
+                <p id="currentDateDisplay" class="text-emerald-400 text-[10px] sm:text-xs md:text-sm font-black uppercase tracking-[0.2em]"></p>
             </div>
         </div>
 
         <!-- 3 ANILLOS -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10 text-center uppercase tracking-widest font-black">
-            <div data-metric="recovery" class="metric-ring-btn flex flex-col items-center bg-zinc-900/40 border border-zinc-800/50 rounded-[2.5rem] p-8 shadow-lg backdrop-blur-sm cursor-pointer hover:bg-zinc-800/60 transition-all hover:scale-[1.02] active:scale-95 group">
-                <div class="relative flex items-center justify-center w-40 h-40">
-                    <svg class="transform -rotate-90 w-full h-full">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-10 text-center uppercase tracking-widest font-black">
+            <div data-metric="recovery" class="metric-ring-btn flex flex-col items-center bg-zinc-900/40 border border-zinc-800/50 rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-8 shadow-lg backdrop-blur-sm cursor-pointer hover:bg-zinc-800/60 transition-all hover:scale-[1.02] active:scale-95 group">
+                <div class="relative flex items-center justify-center w-32 h-32 md:w-40 md:h-40">
+                    <svg class="transform -rotate-90 w-full h-full" viewBox="0 0 160 160">
                         <circle cx="80" cy="80" r="72" stroke="currentColor" stroke-width="14" fill="transparent" class="text-zinc-800/40" />
                         <circle id="ringRecovery" cx="80" cy="80" r="72" stroke="currentColor" stroke-width="14" fill="transparent" stroke-dasharray="452.38" stroke-dashoffset="452.38" stroke-linecap="round" class="text-zinc-500 progress-ring-circle" data-value="82" style="opacity: 0;" />
                     </svg>
-                    <div class="absolute"><span id="valRecovery" class="text-4xl font-black text-white uppercase">0%</span></div>
+                    <div class="absolute"><span id="valRecovery" class="text-3xl md:text-4xl font-black text-white uppercase">0%</span></div>
                 </div>
-                <h3 class="mt-8 text-xs font-bold tracking-[0.2em] text-zinc-400 uppercase group-hover:text-emerald-400 transition-colors">Recuperación</h3>
+                <h3 class="mt-6 md:mt-8 text-[10px] md:text-xs font-bold tracking-[0.2em] text-zinc-400 uppercase group-hover:text-emerald-400 transition-colors">Recuperación</h3>
             </div>
-            <div data-metric="sleep" class="metric-ring-btn flex flex-col items-center bg-zinc-900/40 border border-zinc-800/50 rounded-[2.5rem] p-8 shadow-lg backdrop-blur-sm cursor-pointer hover:bg-zinc-800/60 transition-all hover:scale-[1.02] active:scale-95 group">
-                <div class="relative flex items-center justify-center w-40 h-40">
-                    <svg class="transform -rotate-90 w-full h-full">
+            <div data-metric="sleep" class="metric-ring-btn flex flex-col items-center bg-zinc-900/40 border border-zinc-800/50 rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-8 shadow-lg backdrop-blur-sm cursor-pointer hover:bg-zinc-800/60 transition-all hover:scale-[1.02] active:scale-95 group">
+                <div class="relative flex items-center justify-center w-32 h-32 md:w-40 md:h-40">
+                    <svg class="transform -rotate-90 w-full h-full" viewBox="0 0 160 160">
                         <circle cx="80" cy="80" r="72" stroke="currentColor" stroke-width="14" fill="transparent" class="text-zinc-800/40" />
                         <circle id="ringSleep" cx="80" cy="80" r="72" stroke="currentColor" stroke-width="14" fill="transparent" stroke-dasharray="452.38" stroke-dashoffset="452.38" stroke-linecap="round" class="text-orange-500 progress-ring-circle" data-value="90" style="opacity: 0;" />
                     </svg>
-                    <div class="absolute"><span id="valSleep" class="text-4xl font-black text-white uppercase">0H 00</span></div>
+                    <div class="absolute"><span id="valSleep" class="text-3xl md:text-4xl font-black text-white uppercase">0H 00</span></div>
                 </div>
-                <h3 class="mt-8 text-xs font-bold tracking-[0.2em] text-zinc-400 uppercase group-hover:text-orange-400 transition-colors">Sueño</h3>
+                <h3 class="mt-6 md:mt-8 text-[10px] md:text-xs font-bold tracking-[0.2em] text-zinc-400 uppercase group-hover:text-orange-400 transition-colors">Sueño</h3>
             </div>
-            <div data-metric="strain" class="metric-ring-btn flex flex-col items-center bg-zinc-900/40 border border-zinc-800/50 rounded-[2.5rem] p-8 shadow-lg backdrop-blur-sm cursor-pointer hover:bg-zinc-800/60 transition-all hover:scale-[1.02] active:scale-95 group">
-                <div class="relative flex items-center justify-center w-40 h-40">
-                    <svg class="transform -rotate-90 w-full h-full">
+            <div data-metric="strain" class="metric-ring-btn flex flex-col items-center bg-zinc-900/40 border border-zinc-800/50 rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-8 shadow-lg backdrop-blur-sm cursor-pointer hover:bg-zinc-800/60 transition-all hover:scale-[1.02] active:scale-95 group">
+                <div class="relative flex items-center justify-center w-32 h-32 md:w-40 md:h-40">
+                    <svg class="transform -rotate-90 w-full h-full" viewBox="0 0 160 160">
                         <circle cx="80" cy="80" r="72" stroke="currentColor" stroke-width="14" fill="transparent" class="text-zinc-800/40" />
                         <circle id="ringStrain" cx="80" cy="80" r="72" stroke="currentColor" stroke-width="14" fill="transparent" stroke-dasharray="452.38" stroke-dashoffset="452.38" stroke-linecap="round" class="text-blue-500 progress-ring-circle" data-value="35" style="opacity: 0;" />
                     </svg>
-                    <div class="absolute"><span id="valStrain" class="text-4xl font-black text-white uppercase">0.0</span></div>
+                    <div class="absolute"><span id="valStrain" class="text-3xl md:text-4xl font-black text-white uppercase">0.0</span></div>
                 </div>
-                <h3 class="mt-8 text-xs font-bold tracking-[0.2em] text-zinc-400 uppercase group-hover:text-emerald-400 transition-colors">Esfuerzo</h3>
+                <h3 class="mt-6 md:mt-8 text-[10px] md:text-xs font-bold tracking-[0.2em] text-zinc-400 uppercase group-hover:text-emerald-400 transition-colors">Esfuerzo</h3>
             </div>
         </div>
 
         <!-- MONITORES SECUNDARIOS -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10 font-black uppercase tracking-widest text-white">
-            <div id="healthCard" data-metric="health" class="metric-ring-btn bg-zinc-900/60 transition-all cursor-pointer rounded-[2rem] p-8 border border-zinc-800/50 shadow-xl group">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-8 sm:mb-10 font-black uppercase tracking-widest text-white">
+            <div id="healthCard" data-metric="health" class="metric-ring-btn bg-zinc-900/60 transition-all cursor-pointer rounded-[1.5rem] sm:rounded-[2rem] p-6 sm:p-8 border border-zinc-800/50 shadow-xl group">
                 <div class="flex justify-between items-start mb-6 uppercase">
-                    <h3 class="text-xs font-black text-zinc-400 group-hover:text-emerald-400 transition-colors">Monitor de Salud</h3>
+                    <h3 class="text-[10px] sm:text-xs font-black text-zinc-400 group-hover:text-emerald-400 transition-colors">Monitor de Salud</h3>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-zinc-600"><path d="m9 18 6-6-6-6"/></svg>
                 </div>
                 <div class="flex items-center gap-4">
                     <div class="bg-zinc-800 text-zinc-600 p-2 rounded-xl border border-zinc-700"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 8v4l3 3"/></svg></div>
-                    <span class="text-zinc-600 font-black text-lg">PENDIENTE</span>
+                    <span class="text-zinc-600 font-black text-base sm:text-lg">PENDIENTE</span>
                 </div>
             </div>
-            <div id="stressCard" data-metric="stress" class="metric-ring-btn bg-zinc-900/60 transition-all cursor-pointer rounded-[2rem] p-8 border border-zinc-800/50 shadow-xl group">
+            <div id="stressCard" data-metric="stress" class="metric-ring-btn bg-zinc-900/60 transition-all cursor-pointer rounded-[1.5rem] sm:rounded-[2rem] p-6 sm:p-8 border border-zinc-800/50 shadow-xl group">
                 <div class="flex justify-between items-start mb-6 uppercase">
-                    <h3 class="text-xs font-black text-zinc-400 group-hover:text-emerald-400 transition-colors">Monitor de Estrés</h3>
+                    <h3 class="text-[10px] sm:text-xs font-black text-zinc-400 group-hover:text-emerald-400 transition-colors">Monitor de Estrés</h3>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-zinc-600"><path d="m9 18 6-6-6-6"/></svg>
                 </div>
                 <div class="flex items-center gap-4 text-white">
-                    <div class="bg-zinc-800 text-zinc-600 px-3 py-2 rounded-xl border border-zinc-700 text-xl font-black">0.0</div>
-                    <span class="text-zinc-600 font-black text-lg tracking-tight">--</span>
+                    <div class="bg-zinc-800 text-zinc-600 px-3 py-2 rounded-xl border border-zinc-700 text-lg sm:text-xl font-black">0.0</div>
+                    <span class="text-zinc-600 font-black text-base sm:text-lg tracking-tight">--</span>
                 </div>
             </div>
         </div>
 
         <!-- ÚLTIMA ACTIVIDAD -->
-        <div data-metric="workout" class="metric-ring-btn bg-zinc-900/40 border border-zinc-800/50 rounded-[2.5rem] p-8 shadow-lg backdrop-blur-sm overflow-hidden relative cursor-pointer hover:bg-zinc-800/60 transition-all active:scale-[0.98] group uppercase font-black tracking-widest">
-            <div class="flex justify-between items-center mb-10 text-white">
-                <div><h3 class="text-lg font-black uppercase tracking-tight group-hover:text-emerald-400 transition-colors">Última Actividad</h3><p class="text-zinc-500 text-xs font-normal">Identificado por Fit Aura</p></div>
-                <div id="workoutDetailsBtn" class="bg-zinc-800 transition-colors px-4 py-2 rounded-xl flex items-center gap-2 text-[10px] font-black uppercase text-zinc-500">
+        <div data-metric="workout" class="metric-ring-btn bg-zinc-900/40 border border-zinc-800/50 rounded-[1.5rem] sm:rounded-[2.5rem] p-6 sm:p-8 shadow-lg backdrop-blur-sm overflow-hidden relative cursor-pointer hover:bg-zinc-800/60 transition-all active:scale-[0.98] group uppercase font-black tracking-widest">
+            <div class="flex justify-between items-center mb-8 sm:mb-10 text-white">
+                <div><h3 class="text-base sm:text-lg font-black uppercase tracking-tight group-hover:text-emerald-400 transition-colors">Última Actividad</h3><p class="text-zinc-500 text-[10px] sm:text-xs font-normal">Identificado por Fit Aura</p></div>
+                <div id="workoutDetailsBtn" class="bg-zinc-800 transition-colors px-3 py-2 sm:px-4 sm:py-2 rounded-xl flex items-center gap-2 text-[9px] sm:text-[10px] font-black uppercase text-zinc-500">
                     <span>Sin Datos</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="m9 18 6-6-6-6"/></svg>
                 </div>
             </div>
-            <div class="relative flex justify-between items-start mb-10 text-white opacity-40 transition-opacity duration-700 text-center" id="workoutTimeline">
-                <div class="absolute top-6 left-0 w-full h-[2px] bg-zinc-800 z-0 text-center"></div>
+            <div class="relative flex justify-between items-start mb-8 sm:mb-10 text-white opacity-40 transition-opacity duration-700 text-center" id="workoutTimeline">
+                <div class="absolute top-5 sm:top-6 left-0 w-full h-[2px] bg-zinc-800 z-0 text-center"></div>
                 <div class="relative z-10 flex flex-col items-center w-1/4">
-                    <div class="w-12 h-12 rounded-2xl bg-zinc-950 border border-zinc-800 flex items-center justify-center text-zinc-500 mb-4 transition-all"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 18l6-6-6-6M3 12h16"/></svg></div>
-                    <span class="text-[9px] uppercase font-black">Ida</span><span class="text-xs">-- MIN</span>
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-zinc-950 border border-zinc-800 flex items-center justify-center text-zinc-500 mb-3 sm:mb-4 transition-all"><svg width="18" height="18" class="sm:w-5 sm:h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 18l6-6-6-6M3 12h16"/></svg></div>
+                    <span class="text-[8px] sm:text-[9px] uppercase font-black">Ida</span><span class="text-[10px] sm:text-xs">-- MIN</span>
                 </div>
                 <div class="relative z-10 flex flex-col items-center w-2/4 text-center">
-                    <div class="w-14 h-14 rounded-2xl bg-zinc-800 border-4 border-black flex items-center justify-center text-zinc-600 mx-auto mb-4"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 3v18M18 3v18M3 8h18M3 16h18"/></svg></div>
-                    <span class="text-[10px] text-zinc-600 uppercase font-black">Gimnasio</span><span class="text-sm font-black uppercase">--H --M</span>
+                    <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-zinc-800 border-4 border-black flex items-center justify-center text-zinc-600 mx-auto mb-3 sm:mb-4"><svg width="20" height="20" class="sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 3v18M18 3v18M3 8h18M3 16h18"/></svg></div>
+                    <span class="text-[9px] sm:text-[10px] text-zinc-600 uppercase font-black">Gimnasio</span><span class="text-xs sm:text-sm font-black uppercase">--H --M</span>
                 </div>
                 <div class="relative z-10 flex flex-col items-center w-1/4 text-right">
-                    <div class="w-12 h-12 rounded-2xl bg-zinc-950 border border-zinc-800 flex items-center justify-center text-zinc-500 mx-auto mb-4 transition-transform uppercase"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 18l-6-6 6-6M21 12H5"/></svg></div>
-                    <span class="text-[9px] uppercase font-black">Vuelta</span><span class="text-xs">-- MIN</span>
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-zinc-950 border border-zinc-800 flex items-center justify-center text-zinc-500 mx-auto mb-3 sm:mb-4 transition-transform uppercase"><svg width="18" height="18" class="sm:w-5 sm:h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 18l-6-6 6-6M21 12H5"/></svg></div>
+                    <span class="text-[8px] sm:text-[9px] uppercase font-black">Vuelta</span><span class="text-[10px] sm:text-xs">-- MIN</span>
                 </div>
             </div>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-6 border-t border-zinc-800/50 text-white text-center">
-                <div><p class="text-[9px] text-zinc-500 uppercase font-black">Calorías</p><p id="workKcal" class="text-xl font-black">0 KCAL</p></div>
-                <div class="border-l border-zinc-800/50"><p class="text-[9px] text-zinc-500 uppercase font-black">FC Media</p><p id="workFc" class="text-xl font-black uppercase">0 LPM</p></div>
-                <div class="border-l border-zinc-800/50"><p class="text-[9px] text-zinc-500 uppercase font-black">Activo</p><p id="workTime" class="text-xl font-black uppercase">0H 00M</p></div>
-                <div class="border-l border-zinc-800/50"><p class="text-[9px] text-zinc-500 uppercase font-black">Estado</p><p id="workStatus" class="text-xl font-black text-zinc-600 uppercase">--</p></div>
+                <div><p class="text-[9px] text-zinc-500 uppercase font-black">Calorías</p><p id="workKcal" class="text-lg sm:text-xl font-black">0 KCAL</p></div>
+                <div class="border-l-0 md:border-l border-zinc-800/50"><p class="text-[9px] text-zinc-500 uppercase font-black">FC Media</p><p id="workFc" class="text-lg sm:text-xl font-black uppercase">0 LPM</p></div>
+                <div class="border-t md:border-t-0 md:border-l border-zinc-800/50 pt-4 md:pt-0"><p class="text-[9px] text-zinc-500 uppercase font-black">Activo</p><p id="workTime" class="text-lg sm:text-xl font-black uppercase">0H 00M</p></div>
+                <div class="border-l-0 md:border-l border-t md:border-t-0 border-zinc-800/50 pt-4 md:pt-0"><p class="text-[9px] text-zinc-500 uppercase font-black">Estado</p><p id="workStatus" class="text-lg sm:text-xl font-black text-zinc-600 uppercase">--</p></div>
             </div>
         </div>
     </main>
 
     <!-- MODALES DETALLES MÉTRICAS -->
     <div id="metricDetailModal" class="hidden fixed inset-0 bg-black/95 backdrop-blur-md z-[70] items-center justify-center p-4">
-        <div class="bg-zinc-950 border border-zinc-800 rounded-[3rem] p-8 md:p-10 w-full max-w-2xl relative shadow-2xl overflow-y-auto max-h-[90vh] custom-scrollbar uppercase">
-            <button id="btnMetricClose" class="absolute top-6 right-6 text-zinc-500 hover:text-white transition-colors"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
-            <div class="flex flex-col gap-8">
-                <div class="flex items-center gap-6">
-                    <div id="metricIconContainer" class="p-5 rounded-3xl bg-zinc-900 border border-zinc-800 text-emerald-400 shadow-inner"></div>
-                    <div><h2 id="metricDetailTitle" class="text-3xl font-black uppercase tracking-tighter">Detalles</h2><p id="metricDetailStatus" class="text-emerald-400 text-sm font-black uppercase tracking-widest mt-1">Sincronizado</p></div>
+        <div class="bg-zinc-950 border border-zinc-800 rounded-[2rem] sm:rounded-[3rem] p-6 sm:p-8 md:p-10 w-full max-w-2xl relative shadow-2xl overflow-y-auto max-h-[90vh] custom-scrollbar uppercase">
+            <button id="btnMetricClose" class="absolute top-4 sm:top-6 right-4 sm:right-6 text-zinc-500 hover:text-white transition-colors"><svg width="24" height="24" class="sm:w-7 sm:h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+            <div class="flex flex-col gap-6 sm:gap-8">
+                <div class="flex items-center gap-4 sm:gap-6 mt-4 sm:mt-0">
+                    <div id="metricIconContainer" class="p-4 sm:p-5 rounded-2xl sm:rounded-3xl bg-zinc-900 border border-zinc-800 text-emerald-400 shadow-inner"></div>
+                    <div><h2 id="metricDetailTitle" class="text-xl sm:text-3xl font-black uppercase tracking-tighter">Detalles</h2><p id="metricDetailStatus" class="text-emerald-400 text-[10px] sm:text-sm font-black uppercase tracking-widest mt-1">Sincronizado</p></div>
                 </div>
-                <div id="metricStatsSummary" class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-white uppercase font-black"></div>
+                <div id="metricStatsSummary" class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 text-white uppercase font-black"></div>
                 
-                <div class="bg-zinc-900/50 border border-zinc-800 rounded-[2rem] p-8 relative">
-                    <h4 id="graphLabel" class="text-[10px] uppercase text-zinc-500 mb-6 font-black tracking-widest">Análisis de 24h</h4>
-                    <div class="graph-container h-44 w-full" id="interactiveGraphContainer">
+                <div class="bg-zinc-900/50 border border-zinc-800 rounded-[1.5rem] sm:rounded-[2rem] p-5 sm:p-8 relative">
+                    <h4 id="graphLabel" class="text-[9px] sm:text-[10px] uppercase text-zinc-500 mb-4 sm:mb-6 font-black tracking-widest">Análisis de 24h</h4>
+                    <div class="graph-container h-32 sm:h-44 w-full" id="interactiveGraphContainer">
                         <svg id="metricGraphSVG" class="w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 40"></svg>
                         <div class="graph-scrubber" id="graphScrubber"></div>
                         <div class="graph-tooltip" id="graphTooltip"></div>
-                        <div id="graphXLabels" class="flex justify-between mt-4 text-[9px] text-zinc-600 font-black tracking-widest uppercase"><span>00:00</span><span>Mediodía</span><span>Ahora</span></div>
+                        <div id="graphXLabels" class="flex justify-between mt-3 sm:mt-4 text-[8px] sm:text-[9px] text-zinc-600 font-black tracking-widest uppercase"><span>00:00</span><span>Mediodía</span><span>Ahora</span></div>
                     </div>
                 </div>
 
-                <div class="bg-zinc-900/40 p-6 rounded-2xl border-l-4 border-emerald-500 text-white">
-                    <h4 class="text-[10px] uppercase text-zinc-500 mb-2 font-black tracking-widest">IA Insight</h4>
-                    <p id="metricDeepAnalysis" class="text-sm font-normal italic leading-relaxed text-zinc-300"></p>
+                <div class="bg-zinc-900/40 p-5 sm:p-6 rounded-2xl border-l-4 border-emerald-500 text-white">
+                    <h4 class="text-[9px] sm:text-[10px] uppercase text-zinc-500 mb-2 font-black tracking-widest">IA Insight</h4>
+                    <p id="metricDeepAnalysis" class="text-xs sm:text-sm font-normal italic leading-relaxed text-zinc-300"></p>
                 </div>
                 
-                <div id="extraInfoBlock" class="hidden grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="bg-zinc-900 border border-zinc-800 p-5 rounded-2xl"><h5 class="text-[10px] font-black uppercase text-zinc-500 mb-3 tracking-widest">FC Máxima</h5><div class="flex items-end gap-2"><span class="text-3xl font-black text-rose-500 uppercase">174</span><span class="text-zinc-500 text-xs mb-1 font-black">LPM</span></div></div>
-                    <div class="bg-zinc-900 border border-zinc-800 p-5 rounded-2xl"><h5 class="text-[10px] font-black uppercase text-zinc-500 mb-3 tracking-widest">Zona Anaeróbica</h5><div class="flex items-end gap-2"><span class="text-3xl font-black text-emerald-400 uppercase">42</span><span class="text-zinc-500 text-xs mb-1 font-black">MIN</span></div></div>
+                <div id="extraInfoBlock" class="hidden grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
+                    <div class="bg-zinc-900 border border-zinc-800 p-4 sm:p-5 rounded-2xl"><h5 class="text-[9px] sm:text-[10px] font-black uppercase text-zinc-500 mb-2 sm:mb-3 tracking-widest">FC Máxima</h5><div class="flex items-end gap-2"><span class="text-2xl sm:text-3xl font-black text-rose-500 uppercase">174</span><span class="text-zinc-500 text-[10px] sm:text-xs mb-1 font-black">LPM</span></div></div>
+                    <div class="bg-zinc-900 border border-zinc-800 p-4 sm:p-5 rounded-2xl"><h5 class="text-[9px] sm:text-[10px] font-black uppercase text-zinc-500 mb-2 sm:mb-3 tracking-widest">Zona Anaeróbica</h5><div class="flex items-end gap-2"><span class="text-2xl sm:text-3xl font-black text-emerald-400 uppercase">42</span><span class="text-zinc-500 text-[10px] sm:text-xs mb-1 font-black">MIN</span></div></div>
                 </div>
             </div>
         </div>
@@ -334,76 +336,76 @@
 
     <!-- MODAL PERFIL -->
     <div id="profileModal" class="hidden fixed inset-0 bg-black/90 backdrop-blur-sm z-50 items-center justify-center p-4">
-        <div class="bg-zinc-950 border border-zinc-800 rounded-[2.5rem] p-8 w-full max-w-sm relative shadow-2xl overflow-hidden uppercase text-white font-black tracking-widest">
+        <div class="bg-zinc-950 border border-zinc-800 rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-8 w-full max-w-sm relative shadow-2xl overflow-hidden uppercase text-white font-black tracking-widest">
             <button id="btnProfileClose" class="absolute top-4 right-4 text-zinc-500 hover:text-white uppercase"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
 
             <!-- Login -->
-            <div id="loginView" class="flex flex-col items-center py-6 text-center w-full">
-                <div class="w-20 h-20 bg-emerald-500/10 border border-emerald-500/20 rounded-full flex items-center justify-center mb-8 text-emerald-400 shadow-inner"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
-                <h2 class="text-2xl font-black mb-10 uppercase tracking-tight">Acceso Fit Aura</h2>
-                <div class="w-full space-y-4 mb-10 text-left">
-                    <input type="email" id="loginEmail" placeholder="Email" class="w-full bg-zinc-900 border border-zinc-800 rounded-2xl px-5 py-4 text-white text-sm focus:border-emerald-500 outline-none" autocomplete="off" />
-                    <p id="emailError" class="text-red-500 text-[10px] hidden font-black uppercase">Email no válido</p>
-                    <input type="password" id="loginPassword" placeholder="Contraseña" class="w-full bg-zinc-900 border border-zinc-800 rounded-2xl px-5 py-4 text-white text-sm focus:border-emerald-500 outline-none" />
+            <div id="loginView" class="flex flex-col items-center py-4 sm:py-6 text-center w-full">
+                <div class="w-16 h-16 sm:w-20 sm:h-20 bg-emerald-500/10 border border-emerald-500/20 rounded-full flex items-center justify-center mb-6 sm:mb-8 text-emerald-400 shadow-inner"><svg width="32" height="32" class="sm:w-10 sm:h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+                <h2 class="text-xl sm:text-2xl font-black mb-6 sm:mb-10 uppercase tracking-tight">Acceso Fit Aura</h2>
+                <div class="w-full space-y-3 sm:space-y-4 mb-8 sm:mb-10 text-left">
+                    <input type="email" id="loginEmail" placeholder="Email" class="w-full bg-zinc-900 border border-zinc-800 rounded-xl sm:rounded-2xl px-4 sm:px-5 py-3 sm:py-4 text-white text-xs sm:text-sm focus:border-emerald-500 outline-none" autocomplete="off" />
+                    <p id="emailError" class="text-red-500 text-[9px] sm:text-[10px] hidden font-black uppercase">Email no válido</p>
+                    <input type="password" id="loginPassword" placeholder="Contraseña" class="w-full bg-zinc-900 border border-zinc-800 rounded-xl sm:rounded-2xl px-4 sm:px-5 py-3 sm:py-4 text-white text-xs sm:text-sm focus:border-emerald-500 outline-none" />
                 </div>
-                <button id="btnLoginSubmit" class="w-full bg-emerald-500 text-black py-4 rounded-2xl text-sm font-black uppercase tracking-widest">Entrar</button>
+                <button id="btnLoginSubmit" class="w-full bg-emerald-500 text-black py-3 sm:py-4 rounded-xl sm:rounded-2xl text-xs sm:text-sm font-black uppercase tracking-widest">Entrar</button>
             </div>
 
             <!-- Dashboard Perfil -->
-            <div id="profileMainView" class="hidden flex flex-col items-center py-4 text-center w-full">
-                <div class="w-20 h-20 bg-zinc-900 rounded-full border border-zinc-700 mb-4 flex items-center justify-center text-zinc-600 shadow-inner mx-auto"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
-                <h2 class="text-2xl font-black mb-1 uppercase tracking-tighter">Mi Perfil</h2>
-                <p id="displayUserEmail" class="text-zinc-500 text-xs mb-8 uppercase">usuario@fitaura.com</p>
-                <div class="grid grid-cols-2 gap-4 w-full mb-4">
-                    <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 flex flex-col items-center shadow-inner uppercase font-black focus-within:border-emerald-500/50 transition-colors">
-                        <span class="text-zinc-600 text-[9px] uppercase tracking-widest">Altura (cm)</span>
-                        <div class="flex items-center gap-2 mt-2">
+            <div id="profileMainView" class="hidden flex flex-col items-center py-2 sm:py-4 text-center w-full">
+                <div class="w-16 h-16 sm:w-20 sm:h-20 bg-zinc-900 rounded-full border border-zinc-700 mb-3 sm:mb-4 flex items-center justify-center text-zinc-600 shadow-inner mx-auto"><svg width="32" height="32" class="sm:w-12 sm:h-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+                <h2 class="text-xl sm:text-2xl font-black mb-1 uppercase tracking-tighter">Mi Perfil</h2>
+                <p id="displayUserEmail" class="text-zinc-500 text-[10px] sm:text-xs mb-6 sm:mb-8 uppercase">usuario@fitaura.com</p>
+                <div class="grid grid-cols-2 gap-3 sm:gap-4 w-full mb-3 sm:mb-4">
+                    <div class="bg-zinc-900 border border-zinc-800 rounded-xl sm:rounded-2xl p-3 sm:p-4 flex flex-col items-center shadow-inner uppercase font-black focus-within:border-emerald-500/50 transition-colors">
+                        <span class="text-zinc-600 text-[8px] sm:text-[9px] uppercase tracking-widest">Altura (cm)</span>
+                        <div class="flex items-center gap-1 sm:gap-2 mt-2">
                             <div class="stepper-btn" onclick="adjustValue('inputHeight', -1)">-</div>
-                            <input type="number" id="inputHeight" value="180" class="profile-input text-xl">
+                            <input type="number" id="inputHeight" value="180" class="profile-input text-lg sm:text-xl w-12 sm:w-16">
                             <div class="stepper-btn" onclick="adjustValue('inputHeight', 1)">+</div>
                         </div>
                     </div>
-                    <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 flex flex-col items-center shadow-inner uppercase font-black focus-within:border-emerald-500/50 transition-colors">
-                        <span class="text-zinc-600 text-[9px] uppercase tracking-widest">Peso (kg)</span>
-                        <div class="flex items-center gap-2 mt-2">
+                    <div class="bg-zinc-900 border border-zinc-800 rounded-xl sm:rounded-2xl p-3 sm:p-4 flex flex-col items-center shadow-inner uppercase font-black focus-within:border-emerald-500/50 transition-colors">
+                        <span class="text-zinc-600 text-[8px] sm:text-[9px] uppercase tracking-widest">Peso (kg)</span>
+                        <div class="flex items-center gap-1 sm:gap-2 mt-2">
                             <div class="stepper-btn" onclick="adjustValue('inputWeight', -1)">-</div>
-                            <input type="number" id="inputWeight" value="75" class="profile-input text-xl">
+                            <input type="number" id="inputWeight" value="75" class="profile-input text-lg sm:text-xl w-12 sm:w-16">
                             <div class="stepper-btn" onclick="adjustValue('inputWeight', 1)">+</div>
                         </div>
                     </div>
                 </div>
-                <div class="w-full bg-zinc-900 border border-zinc-800 rounded-2xl p-4 flex flex-col items-center mb-10 focus-within:border-emerald-500/50 transition-colors">
-                    <span class="text-zinc-600 text-[9px] uppercase tracking-widest">Nacimiento</span>
-                    <input type="date" id="inputBirth" value="1995-05-15" class="profile-input text-xs w-full uppercase mt-1">
+                <div class="w-full bg-zinc-900 border border-zinc-800 rounded-xl sm:rounded-2xl p-3 sm:p-4 flex flex-col items-center mb-6 sm:mb-10 focus-within:border-emerald-500/50 transition-colors">
+                    <span class="text-zinc-600 text-[8px] sm:text-[9px] uppercase tracking-widest">Nacimiento</span>
+                    <input type="date" id="inputBirth" value="1995-05-15" class="profile-input text-[10px] sm:text-xs w-full uppercase mt-1">
                 </div>
-                <div id="btnManageSubscription" class="w-full bg-emerald-500/10 border border-emerald-500/20 rounded-2xl p-5 flex items-center justify-between mb-10 cursor-pointer hover:bg-emerald-500/20 transition-all group">
-                    <div class="text-left"><span id="activePlanTitleMain" class="text-emerald-400 font-black text-sm uppercase">PEAK</span><p class="text-zinc-500 text-[10px] uppercase group-hover:underline mt-1">Gestionar suscripción</p></div>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-zinc-600 group-hover:text-emerald-400"><path d="m9 18 6-6-6-6"/></svg>
+                <div id="btnManageSubscription" class="w-full bg-emerald-500/10 border border-emerald-500/20 rounded-xl sm:rounded-2xl p-4 sm:p-5 flex items-center justify-between mb-6 sm:mb-10 cursor-pointer hover:bg-emerald-500/20 transition-all group">
+                    <div class="text-left"><span id="activePlanTitleMain" class="text-emerald-400 font-black text-xs sm:text-sm uppercase">PEAK</span><p class="text-zinc-500 text-[9px] sm:text-[10px] uppercase group-hover:underline mt-1">Gestionar suscripción</p></div>
+                    <svg width="18" height="18" class="sm:w-5 sm:h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-zinc-600 group-hover:text-emerald-400"><path d="m9 18 6-6-6-6"/></svg>
                 </div>
-                <button id="btnLogout" class="text-red-500 font-black text-[10px] uppercase tracking-widest hover:text-red-400">Cerrar Sesión</button>
+                <button id="btnLogout" class="text-red-500 font-black text-[9px] sm:text-[10px] uppercase tracking-widest hover:text-red-400">Cerrar Sesión</button>
             </div>
 
             <!-- Planes -->
             <div id="subscriptionPlansView" class="hidden flex-col w-full text-left">
-                <button id="btnBackToProfile" class="flex items-center gap-2 text-zinc-500 hover:text-white text-[10px] mb-8 font-black uppercase"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="m15 18-6-6 6-6"/></svg> Volver</button>
-                <div class="space-y-4 max-h-[55vh] overflow-y-auto pr-2 custom-scrollbar">
-                    <div id="cardPlan1" class="plan-card bg-zinc-950 border border-zinc-800 rounded-[1.5rem] p-5 relative transition-all duration-500">
-                        <div id="badgePlan1" class="hidden absolute top-0 right-0 bg-zinc-500 text-white text-[9px] px-3 py-1 font-black rounded-bl-xl uppercase tracking-widest">Actual</div>
-                        <h4 class="text-white font-black text-lg uppercase">ONE</h4>
-                        <p class="text-xs text-zinc-500 mb-4 font-normal uppercase">Fitness básico. Aura 1.0.</p>
-                        <button data-level="1" class="btn-select-plan w-full mt-4 bg-zinc-800 text-white py-3 rounded-xl text-[10px] font-black uppercase">Elegir</button>
+                <button id="btnBackToProfile" class="flex items-center gap-2 text-zinc-500 hover:text-white text-[9px] sm:text-[10px] mb-6 sm:mb-8 font-black uppercase"><svg width="12" height="12" class="sm:w-3.5 sm:h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="m15 18-6-6 6-6"/></svg> Volver</button>
+                <div class="space-y-3 sm:space-y-4 max-h-[55vh] overflow-y-auto pr-2 custom-scrollbar">
+                    <div id="cardPlan1" class="plan-card bg-zinc-950 border border-zinc-800 rounded-[1rem] sm:rounded-[1.5rem] p-4 sm:p-5 relative transition-all duration-500">
+                        <div id="badgePlan1" class="hidden absolute top-0 right-0 bg-zinc-500 text-white text-[8px] sm:text-[9px] px-2 sm:px-3 py-1 font-black rounded-bl-lg sm:rounded-bl-xl uppercase tracking-widest">Actual</div>
+                        <h4 class="text-white font-black text-base sm:text-lg uppercase">ONE</h4>
+                        <p class="text-[10px] sm:text-xs text-zinc-500 mb-3 sm:mb-4 font-normal uppercase">Fitness básico. Aura 1.0.</p>
+                        <button data-level="1" class="btn-select-plan w-full mt-2 sm:mt-4 bg-zinc-800 text-white py-2.5 sm:py-3 rounded-lg sm:rounded-xl text-[9px] sm:text-[10px] font-black uppercase">Elegir</button>
                     </div>
-                    <div id="cardPlan2" class="plan-card bg-emerald-500/5 border border-emerald-500 rounded-[1.5rem] p-5 relative transition-all duration-500">
-                        <div id="badgePlan2" class="absolute top-0 right-0 bg-emerald-500 text-black text-[9px] px-3 py-1 font-black rounded-bl-xl uppercase tracking-widest">Actual</div>
-                        <h4 class="text-emerald-400 font-black text-lg uppercase">PEAK</h4>
-                        <p class="text-xs text-zinc-400 mb-4 font-normal uppercase">Salud avanzada y estrés. Aura 2.0.</p>
-                        <button data-level="2" class="btn-select-plan w-full mt-4 bg-emerald-500 text-black py-3 rounded-xl text-[10px] font-black uppercase">Plan Activo</button>
+                    <div id="cardPlan2" class="plan-card bg-emerald-500/5 border border-emerald-500 rounded-[1rem] sm:rounded-[1.5rem] p-4 sm:p-5 relative transition-all duration-500">
+                        <div id="badgePlan2" class="absolute top-0 right-0 bg-emerald-500 text-black text-[8px] sm:text-[9px] px-2 sm:px-3 py-1 font-black rounded-bl-lg sm:rounded-bl-xl uppercase tracking-widest">Actual</div>
+                        <h4 class="text-emerald-400 font-black text-base sm:text-lg uppercase">PEAK</h4>
+                        <p class="text-[10px] sm:text-xs text-zinc-400 mb-3 sm:mb-4 font-normal uppercase">Salud y estrés. Aura 2.0.</p>
+                        <button data-level="2" class="btn-select-plan w-full mt-2 sm:mt-4 bg-emerald-500 text-black py-2.5 sm:py-3 rounded-lg sm:rounded-xl text-[9px] sm:text-[10px] font-black uppercase">Plan Activo</button>
                     </div>
-                    <div id="cardPlan3" class="plan-card bg-zinc-950 border border-zinc-800 rounded-[1.5rem] p-5 relative transition-all duration-500">
-                        <div id="badgePlan3" class="hidden absolute top-0 right-0 bg-amber-500 text-black text-[9px] px-3 py-1 font-black rounded-bl-xl uppercase tracking-widest text-center">Actual</div>
-                        <h4 class="text-white font-black text-lg uppercase">LIFE</h4>
-                        <p class="text-xs text-zinc-500 mb-4 font-normal uppercase">Grado médico y ECG. Aura 3.0.</p>
-                        <button data-level="3" class="btn-select-plan w-full mt-4 bg-amber-500 text-black py-3 rounded-xl text-[10px] font-black uppercase shadow-lg shadow-amber-500/20">Mejorar</button>
+                    <div id="cardPlan3" class="plan-card bg-zinc-950 border border-zinc-800 rounded-[1rem] sm:rounded-[1.5rem] p-4 sm:p-5 relative transition-all duration-500">
+                        <div id="badgePlan3" class="hidden absolute top-0 right-0 bg-amber-500 text-black text-[8px] sm:text-[9px] px-2 sm:px-3 py-1 font-black rounded-bl-lg sm:rounded-bl-xl uppercase tracking-widest text-center">Actual</div>
+                        <h4 class="text-white font-black text-base sm:text-lg uppercase">LIFE</h4>
+                        <p class="text-[10px] sm:text-xs text-zinc-500 mb-3 sm:mb-4 font-normal uppercase">Grado médico, ECG. Aura 3.0.</p>
+                        <button data-level="3" class="btn-select-plan w-full mt-2 sm:mt-4 bg-amber-500 text-black py-2.5 sm:py-3 rounded-lg sm:rounded-xl text-[9px] sm:text-[10px] font-black uppercase shadow-lg shadow-amber-500/20">Mejorar</button>
                     </div>
                 </div>
             </div>
@@ -412,26 +414,26 @@
 
     <!-- Bluetooth Animasión Radar -->
     <div id="connectionModal" class="hidden fixed inset-0 bg-black/90 backdrop-blur-sm z-50 items-center justify-center p-4">
-        <div class="bg-zinc-950 border border-zinc-800 rounded-[3rem] p-10 w-full max-w-sm relative shadow-2xl text-center uppercase">
-            <button id="btnClose" class="absolute top-6 right-6 text-zinc-600 hover:text-white uppercase"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+        <div class="bg-zinc-950 border border-zinc-800 rounded-[2rem] sm:rounded-[3rem] p-8 sm:p-10 w-full max-w-sm relative shadow-2xl text-center uppercase">
+            <button id="btnClose" class="absolute top-4 sm:top-6 right-4 sm:right-6 text-zinc-600 hover:text-white uppercase"><svg width="20" height="20" class="sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
             <div id="phaseSearching">
-                <div class="relative w-44 h-44 mx-auto mb-10 text-center uppercase">
+                <div class="relative w-32 h-32 sm:w-44 sm:h-44 mx-auto mb-8 sm:mb-10 text-center uppercase">
                     <div class="absolute inset-0 rounded-full border border-emerald-500/20 radar-sweep uppercase tracking-widest"></div>
-                    <div class="absolute inset-0 flex items-center justify-center text-center"><div class="w-14 h-14 bg-zinc-900 rounded-3xl border border-zinc-800 flex items-center justify-center text-emerald-400 shadow-inner"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m7 7 10 10-5 5V2l5 5-10 10"/></svg></div></div>
-                    <div class="absolute w-2 h-2 bg-emerald-400 rounded-full radar-dot dot-1 shadow-[0_0_8px_#10b981]"></div>
-                    <div class="absolute w-2 h-2 bg-emerald-400 rounded-full radar-dot dot-2 shadow-[0_0_8px_#10b981] uppercase"></div>
+                    <div class="absolute inset-0 flex items-center justify-center text-center"><div class="w-10 h-10 sm:w-14 sm:h-14 bg-zinc-900 rounded-xl sm:rounded-3xl border border-zinc-800 flex items-center justify-center text-emerald-400 shadow-inner"><svg width="20" height="20" class="sm:w-7 sm:h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m7 7 10 10-5 5V2l5 5-10 10"/></svg></div></div>
+                    <div class="absolute w-1.5 h-1.5 sm:w-2 sm:h-2 bg-emerald-400 rounded-full radar-dot dot-1 shadow-[0_0_8px_#10b981]"></div>
+                    <div class="absolute w-1.5 h-1.5 sm:w-2 sm:h-2 bg-emerald-400 rounded-full radar-dot dot-2 shadow-[0_0_8px_#10b981] uppercase"></div>
                 </div>
-                <h3 class="text-xl font-black uppercase mb-2 tracking-tight">Escaneando...</h3>
+                <h3 class="text-lg sm:text-xl font-black uppercase mb-2 tracking-tight">Escaneando...</h3>
             </div>
             <div id="phaseFound" class="hidden flex flex-col items-center">
-                <div class="w-20 h-20 bg-emerald-500/10 text-emerald-400 rounded-full flex items-center justify-center mb-8 shadow-inner"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
-                <h3 class="text-2xl font-black uppercase mb-8">¡Encontrada!</h3>
-                <button id="btnLink" class="w-full bg-emerald-500 text-black py-4 rounded-2xl font-black uppercase tracking-widest shadow-xl">Vincular</button>
+                <div class="w-16 h-16 sm:w-20 sm:h-20 bg-emerald-500/10 text-emerald-400 rounded-full flex items-center justify-center mb-6 sm:mb-8 shadow-inner"><svg width="32" height="32" class="sm:w-10 sm:h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+                <h3 class="text-xl sm:text-2xl font-black uppercase mb-6 sm:mb-8">¡Encontrada!</h3>
+                <button id="btnLink" class="w-full bg-emerald-500 text-black py-3 sm:py-4 rounded-xl sm:rounded-2xl font-black uppercase tracking-widest shadow-xl text-xs sm:text-sm">Vincular</button>
             </div>
             <div id="phaseConnected" class="hidden flex flex-col items-center">
-                <div class="w-20 h-20 bg-emerald-500 text-black rounded-full flex items-center justify-center mb-8 shadow-2xl shadow-emerald-500/20"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></div>
-                <h3 class="text-2xl font-black uppercase mb-2 text-white tracking-tighter">¡Vinculada!</h3>
-                <button id="btnAccept" class="w-full bg-zinc-800 text-white py-4 rounded-2xl font-black uppercase tracking-widest mt-10">Acceder</button>
+                <div class="w-16 h-16 sm:w-20 sm:h-20 bg-emerald-500 text-black rounded-full flex items-center justify-center mb-6 sm:mb-8 shadow-2xl shadow-emerald-500/20"><svg width="32" height="32" class="sm:w-10 sm:h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></div>
+                <h3 class="text-xl sm:text-2xl font-black uppercase mb-2 text-white tracking-tighter">¡Vinculada!</h3>
+                <button id="btnAccept" class="w-full bg-zinc-800 text-white py-3 sm:py-4 rounded-xl sm:rounded-2xl font-black uppercase tracking-widest mt-8 sm:mt-10 text-xs sm:text-sm">Acceder</button>
             </div>
         </div>
     </div>
@@ -439,12 +441,12 @@
     <!-- OVERLAY ANIMACIÓN NIVEL -->
     <div id="levelAnimationOverlay" class="hidden fixed inset-0 z-[100] flex flex-col items-center justify-center bg-black transition-opacity duration-500 opacity-0 text-center uppercase tracking-widest">
         <div id="levelAnimContent" class="flex flex-col items-center transform scale-50 opacity-0 transition-all duration-700 uppercase">
-            <div id="levelAnimIconContainer" class="w-36 h-36 rounded-full flex items-center justify-center mb-10 border-8 relative shadow-2xl shadow-emerald-500/20 uppercase tracking-widest">
+            <div id="levelAnimIconContainer" class="w-24 h-24 sm:w-36 sm:h-36 rounded-full flex items-center justify-center mb-8 sm:mb-10 border-4 sm:border-8 relative shadow-2xl shadow-emerald-500/20 uppercase tracking-widest">
                 <div id="levelAnimGlow" class="absolute inset-0 rounded-full animate-ping opacity-30 uppercase tracking-widest"></div>
-                <div class="relative z-20" id="levelAnimIconSVG"></div>
+                <div class="relative z-20 scale-75 sm:scale-100" id="levelAnimIconSVG"></div>
             </div>
-            <h1 id="levelAnimTitle" class="text-5xl font-black uppercase tracking-[0.2em] mb-4">¡Level Up!</h1>
-            <p id="levelAnimSubtitle" class="text-xl text-zinc-400 font-bold uppercase tracking-widest"></p>
+            <h1 id="levelAnimTitle" class="text-3xl sm:text-5xl font-black uppercase tracking-[0.2em] mb-3 sm:mb-4">¡Level Up!</h1>
+            <p id="levelAnimSubtitle" class="text-sm sm:text-xl text-zinc-400 font-bold uppercase tracking-widest"></p>
         </div>
     </div>
 
@@ -514,7 +516,7 @@
                 const ringRec = document.getElementById('ringRecovery');
                 const ringSlp = document.getElementById('ringSleep');
                 const ringStr = document.getElementById('ringStrain');
-                const circ = 402.12;
+                const circ = 452.38;
 
                 if (!ringRec || !ringSlp || !ringStr) return;
 
@@ -527,33 +529,37 @@
                     const sCard = document.getElementById('stressCard');
 
                     const lockHTML = `
-                        <div class="flex justify-between items-start mb-6 uppercase">
-                            <h3 class="text-xs font-black tracking-widest text-zinc-500">Bloqueado</h3>
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="text-zinc-600"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        <div class="flex justify-between items-start mb-4 sm:mb-6 uppercase">
+                            <h3 class="text-[10px] sm:text-xs font-black tracking-widest text-zinc-500">Bloqueado</h3>
+                            <svg width="16" height="16" class="sm:w-[18px] sm:h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="text-zinc-600"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
                         </div>
                         <div class="flex flex-col items-center text-center mt-2">
-                            <p class="text-[10px] text-zinc-500 font-black mb-4 uppercase leading-tight">Actualiza al plan LIFE para desbloquear</p>
-                            <button onclick="event.stopPropagation(); window.openSubMenu()" class="bg-emerald-500 text-black px-6 py-2 rounded-xl text-[10px] font-black uppercase shadow-lg shadow-emerald-500/20 hover:scale-105 transition-transform z-10">Actualizar</button>
+                            <p class="text-[9px] sm:text-[10px] text-zinc-500 font-black mb-3 sm:mb-4 uppercase leading-tight">Actualiza al plan LIFE para desbloquear</p>
+                            <button onclick="event.stopPropagation(); window.openSubMenu()" class="bg-emerald-500 text-black px-4 py-1.5 sm:px-6 sm:py-2 rounded-lg sm:rounded-xl text-[9px] sm:text-[10px] font-black uppercase shadow-lg shadow-emerald-500/20 hover:scale-105 transition-transform z-10">Actualizar</button>
                         </div>
                     `;
 
                     if (currentLevel < 3) {
                         if(hCard) {
                             hCard.innerHTML = lockHTML;
-                            hCard.classList.add('cursor-pointer', 'hover:bg-zinc-800');
+                            hCard.classList.remove('hover:bg-zinc-800', 'active:scale-95', 'cursor-pointer');
+                            hCard.onclick = null;
                         }
                         if(sCard) {
                             sCard.innerHTML = lockHTML;
-                            sCard.classList.add('cursor-pointer', 'hover:bg-zinc-800');
+                            sCard.classList.remove('hover:bg-zinc-800', 'active:scale-95', 'cursor-pointer');
+                            sCard.onclick = null;
                         }
                     } else {
                         if(hCard) {
-                            hCard.classList.add('cursor-pointer', 'hover:bg-zinc-800');
-                            hCard.innerHTML = `<div class="flex justify-between items-start mb-6 uppercase"><h3 class="text-xs font-black tracking-widest text-zinc-400 group-hover:text-emerald-400 transition-colors">Monitor de Salud</h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-zinc-600"><path d="m9 18 6-6-6-6"/></svg></div><div class="flex items-center gap-4"><div class="bg-emerald-500/10 text-emerald-400 p-2 rounded-xl border border-emerald-500/20"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></div><span class="text-emerald-400 font-black text-lg uppercase">EN RANGO</span></div>`;
+                            hCard.classList.add('cursor-pointer', 'hover:bg-zinc-800', 'active:scale-95');
+                            hCard.innerHTML = `<div class="flex justify-between items-start mb-4 sm:mb-6 uppercase"><h3 class="text-[10px] sm:text-xs font-black tracking-widest text-zinc-400 group-hover:text-emerald-400 transition-colors">Monitor de Salud</h3><svg width="16" height="16" class="sm:w-5 sm:h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-zinc-600"><path d="m9 18 6-6-6-6"/></svg></div><div class="flex items-center gap-3 sm:gap-4"><div class="bg-emerald-500/10 text-emerald-400 p-2 rounded-lg sm:rounded-xl border border-emerald-500/20"><svg width="20" height="20" class="sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></div><span class="text-emerald-400 font-black text-sm sm:text-lg uppercase">EN RANGO</span></div>`;
+                            hCard.onclick = () => openMetricModal('health');
                         }
                         if(sCard) {
-                            sCard.classList.add('cursor-pointer', 'hover:bg-zinc-800');
-                            sCard.innerHTML = `<div class="flex justify-between items-start mb-6 uppercase"><h3 class="text-xs font-black tracking-widest text-zinc-400 group-hover:text-emerald-400 transition-colors">Monitor de Estrés</h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-zinc-600"><path d="m9 18 6-6-6-6"/></svg></div><div class="flex items-center gap-4 text-white"><div class="bg-blue-500/10 text-blue-400 px-3 py-2 rounded-xl border border-blue-500/20 text-xl font-black uppercase">1.7</div><span class="text-blue-400 font-black text-lg uppercase tracking-tight">BAJO</span></div>`;
+                            sCard.classList.add('cursor-pointer', 'hover:bg-zinc-800', 'active:scale-95');
+                            sCard.innerHTML = `<div class="flex justify-between items-start mb-4 sm:mb-6 uppercase"><h3 class="text-[10px] sm:text-xs font-black tracking-widest text-zinc-400 group-hover:text-emerald-400 transition-colors">Monitor de Estrés</h3><svg width="16" height="16" class="sm:w-5 sm:h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-zinc-600"><path d="m9 18 6-6-6-6"/></svg></div><div class="flex items-center gap-3 sm:gap-4 text-white"><div class="bg-blue-500/10 text-blue-400 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg sm:rounded-xl text-sm sm:text-xl font-black uppercase">1.7</div><span class="text-blue-400 font-black text-sm sm:text-lg uppercase tracking-tight">BAJO</span></div>`;
+                            sCard.onclick = () => openMetricModal('stress');
                         }
                     }
 
@@ -561,7 +567,7 @@
                     if(wt) {
                         wt.classList.remove('opacity-40');
                         const gi = wt.querySelector('div:nth-child(3) div');
-                        if(gi) gi.className = 'w-14 h-14 rounded-2xl bg-emerald-500 border-4 border-black flex items-center justify-center text-black mx-auto mb-4';
+                        if(gi) gi.className = 'w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-emerald-500 border-4 border-black flex items-center justify-center text-black mx-auto mb-3 sm:mb-4';
                         wt.querySelector('div:nth-child(3) span:last-child').textContent = '1H 30M';
                         wt.querySelector('div:nth-child(2) span:last-child').textContent = '15 MIN';
                         wt.querySelector('div:nth-child(4) span:last-child').textContent = '15 MIN';
@@ -569,7 +575,7 @@
 
                     const dBtn = document.getElementById('workoutDetailsBtn');
                     if(dBtn) {
-                        dBtn.className = 'bg-zinc-800 group-hover:bg-emerald-500 group-hover:text-black transition-colors px-4 py-2 rounded-xl flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-white';
+                        dBtn.className = 'bg-zinc-800 group-hover:bg-emerald-500 group-hover:text-black transition-colors px-3 py-2 sm:px-4 sm:py-2 rounded-xl flex items-center gap-2 text-[9px] sm:text-[10px] font-black uppercase tracking-widest text-white';
                         dBtn.querySelector('span').textContent = 'Ver Detalles';
                     }
 
@@ -577,7 +583,7 @@
                     document.getElementById('workFc').textContent = realStats.workout.fc;
                     document.getElementById('workTime').textContent = realStats.workout.time;
                     const wsEl = document.getElementById('workStatus');
-                    if(wsEl) { wsEl.textContent = realStats.workout.status; wsEl.className = 'text-xl font-black text-emerald-400 uppercase'; }
+                    if(wsEl) { wsEl.textContent = realStats.workout.status; wsEl.className = 'text-lg sm:text-xl font-black text-emerald-400 uppercase'; }
 
                     if (!timerInterval) {
                         minutesSinceUpdate = 0;
@@ -608,12 +614,14 @@
                     const hC = document.getElementById('healthCard');
                     const sC = document.getElementById('stressCard');
                     if(hC) {
-                        hC.innerHTML = `<div class="flex justify-between items-start mb-6 uppercase"><h3 class="text-xs font-black tracking-widest text-zinc-400">Monitor de Salud</h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-zinc-600"><path d="m9 18 6-6-6-6"/></svg></div><div class="flex items-center gap-4 uppercase"><div class="bg-zinc-800 text-zinc-600 p-2 rounded-xl border border-zinc-700"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 8v4l3 3"/></svg></div><span class="text-zinc-600 font-black text-lg uppercase tracking-widest">PENDIENTE</span></div>`;
-                        hC.classList.add('cursor-pointer', 'hover:bg-zinc-800');
+                        hC.innerHTML = `<div class="flex justify-between items-start mb-4 sm:mb-6 uppercase"><h3 class="text-[10px] sm:text-xs font-black tracking-widest text-zinc-400">Monitor de Salud</h3><svg width="16" height="16" class="sm:w-5 sm:h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-zinc-600"><path d="m9 18 6-6-6-6"/></svg></div><div class="flex items-center gap-3 sm:gap-4 uppercase"><div class="bg-zinc-800 text-zinc-600 p-2 rounded-lg sm:rounded-xl border border-zinc-700"><svg width="20" height="20" class="sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 8v4l3 3"/></svg></div><span class="text-zinc-600 font-black text-sm sm:text-lg uppercase tracking-widest">PENDIENTE</span></div>`;
+                        hC.classList.add('cursor-pointer', 'hover:bg-zinc-800', 'active:scale-95');
+                        hC.onclick = null;
                     }
                     if(sC) {
-                        sC.innerHTML = `<div class="flex justify-between items-start mb-6 uppercase"><h3 class="text-xs font-black tracking-widest text-zinc-400">Monitor de Estrés</h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-zinc-600"><path d="m9 18 6-6-6-6"/></svg></div><div class="flex items-center gap-4 text-white uppercase"><div class="bg-zinc-800 text-zinc-600 px-3 py-2 rounded-xl border border-zinc-700 text-xl font-black uppercase">0.0</div><span class="text-zinc-600 font-black text-lg uppercase tracking-tight">--</span></div>`;
-                        sC.classList.add('cursor-pointer', 'hover:bg-zinc-800');
+                        sC.innerHTML = `<div class="flex justify-between items-start mb-4 sm:mb-6 uppercase"><h3 class="text-[10px] sm:text-xs font-black tracking-widest text-zinc-400">Monitor de Estrés</h3><svg width="16" height="16" class="sm:w-5 sm:h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-zinc-600"><path d="m9 18 6-6-6-6"/></svg></div><div class="flex items-center gap-3 sm:gap-4 text-white uppercase"><div class="bg-zinc-800 text-zinc-600 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg sm:rounded-xl text-sm sm:text-xl font-black uppercase">0.0</div><span class="text-zinc-600 font-black text-sm sm:text-lg uppercase tracking-tight">--</span></div>`;
+                        sC.classList.add('cursor-pointer', 'hover:bg-zinc-800', 'active:scale-95');
+                        sC.onclick = null;
                     }
 
                     const wt = document.getElementById('workoutTimeline');
@@ -622,10 +630,10 @@
                     document.getElementById('workFc').textContent = '0 LPM';
                     document.getElementById('workTime').textContent = '0H 00M';
                     const wsEl = document.getElementById('workStatus');
-                    if(wsEl) { wsEl.textContent = '--'; wsEl.className = 'text-xl font-black text-zinc-600 uppercase'; }
+                    if(wsEl) { wsEl.textContent = '--'; wsEl.className = 'text-lg sm:text-xl font-black text-zinc-600 uppercase'; }
                     const dBtn = document.getElementById('workoutDetailsBtn');
                     if(dBtn) {
-                        dBtn.className = 'bg-zinc-800 transition-colors px-4 py-2 rounded-xl flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-zinc-500';
+                        dBtn.className = 'bg-zinc-800 transition-colors px-3 py-2 sm:px-4 sm:py-2 rounded-xl flex items-center gap-2 text-[9px] sm:text-[10px] font-black uppercase tracking-widest text-zinc-500';
                         dBtn.querySelector('span').textContent = 'Sin Datos';
                     }
 
@@ -724,11 +732,14 @@
             const syncBtn = document.getElementById('btnSyncTrigger');
             if(syncBtn) syncBtn.onclick = () => {
                 const sT = document.getElementById('syncText');
+                const sTM = document.getElementById('syncTextMobile');
                 const sI = document.getElementById('syncIcon');
                 if(sT) sT.textContent = "Sincronizando...";
+                if(sTM) sTM.textContent = "Sync...";
                 if(sI) sI.classList.add('animate-spin');
                 setTimeout(() => {
                     if(sT) sT.textContent = "Sincronizar";
+                    if(sTM) sTM.textContent = "Sync";
                     if(sI) sI.classList.remove('animate-spin');
                     minutesSinceUpdate = 0;
                     document.getElementById('syncMinutes').textContent = "0";
@@ -809,7 +820,7 @@
                 const iC = document.getElementById('metricIconContainer');
                 if(iC) { iC.innerHTML = m.icon; iC.style.color = m.color; }
                 const ss = document.getElementById('metricStatsSummary');
-                if(ss) ss.innerHTML = `<div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 text-center text-white font-black col-span-4 uppercase"><span class="text-[9px] uppercase text-zinc-600 block mb-1">Valor Actual</span><span class="text-lg font-black uppercase text-white tracking-widest">${m.data[m.data.length-1]} ${m.unit}</span></div>`;
+                if(ss) ss.innerHTML = `<div class="bg-zinc-900 border border-zinc-800 rounded-xl sm:rounded-2xl p-3 sm:p-4 text-center text-white font-black col-span-4 uppercase"><span class="text-[8px] sm:text-[9px] uppercase text-zinc-600 block mb-1">Valor Actual</span><span class="text-base sm:text-lg font-black uppercase text-white tracking-widest">${m.data[m.data.length-1]} ${m.unit}</span></div>`;
                 
                 mModal.classList.remove('hidden'); mModal.classList.add('flex');
             };
@@ -834,14 +845,26 @@
 
             const gContainer = document.getElementById('interactiveGraphContainer');
             if(gContainer) {
-                gContainer.onmousemove = (e) => {
+                // Función para mover el scrubber (mouse o touch)
+                const handleMove = (e) => {
                     if (!currentMetricData) return;
+                    
+                    // Manejar touch o mouse
+                    let clientX;
+                    if (e.touches && e.touches.length > 0) {
+                        clientX = e.touches[0].clientX;
+                    } else {
+                        clientX = e.clientX;
+                    }
+
                     const rect = gContainer.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
+                    const x = clientX - rect.left;
                     const pct = Math.max(0, Math.min(100, (x / rect.width) * 100));
+                    
                     const gScrubber = document.getElementById('graphScrubber');
                     const gTooltip = document.getElementById('graphTooltip');
                     if(gScrubber) { gScrubber.style.left = `${pct}%`; gScrubber.style.display = 'block'; }
+                    
                     const val = currentMetricData.data[Math.round((pct / 100) * (currentMetricData.data.length - 1))];
                     const maxVal = Math.max(...currentMetricData.data) * 1.2;
                     if(gTooltip) {
@@ -849,12 +872,21 @@
                         gTooltip.innerHTML = `<span class="text-white font-black uppercase">${val} ${currentMetricData.unit}</span>`;
                     }
                 };
-                gContainer.onmouseleave = () => { 
+
+                const handleLeave = () => { 
                     const gScrubber = document.getElementById('graphScrubber');
                     const gTooltip = document.getElementById('graphTooltip');
                     if(gScrubber) gScrubber.style.display = 'none'; 
                     if(gTooltip) gTooltip.style.display = 'none'; 
                 };
+
+                // Mouse events
+                gContainer.addEventListener('mousemove', handleMove);
+                gContainer.addEventListener('mouseleave', handleLeave);
+
+                // Touch events para que funcione en móviles interactuando con el dedo
+                gContainer.addEventListener('touchmove', handleMove, { passive: true });
+                gContainer.addEventListener('touchend', handleLeave);
             }
 
             const btnMC = document.getElementById('btnMetricClose');
